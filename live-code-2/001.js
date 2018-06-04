@@ -16,7 +16,35 @@ RULES:
 
 */
 
-// STORE "solved" with nothing
+
+/* PSEUDOCODE
+SET FUNCTION with str as the parameter THEN inside of it
+STORE "solved" with nothing
+STORE "i" with 0
+FOR "i" < length of str DO
+  IF str[i] is 1 THEN
+    STORE “solved” SET with str[i] = "i"
+    SET ’i’ = ‘i’ + 1
+  ELSE IF str[i] is 4 THEN
+    STORE “solved” SET with str[i] = "a"
+    SET ’i’ = ‘i’ + 1
+  ELSE IF str[i] is 3 THEN
+    STORE “solved” SET with str[i] = "e"
+    SET ’i’ = ‘i’ + 1
+  ELSE IF str[i] is 7 THEN
+    STORE “solved” SET with str[i] = "u"
+    SET ’i’ = ‘i’ + 1
+  ELSE IF str[i] is 0 THEN
+    STORE “solved” SET with str[i] = "o"
+    SET ’i’ = ‘i’ + 1
+  ELSE
+     STORE “solved” SET with str[i]
+     SET ’i’ = ‘i’ + 1
+  END IF
+END FOR
+RETURN "solved"
+END FUNCTION
+*/
 
 function numberLetters (str) {
   var solved ="";
