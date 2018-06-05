@@ -27,6 +27,7 @@ output: []
 
 */
 
+/* SOLUTION 1
 function pairUp(students) {
   var groups=[];
 
@@ -46,6 +47,21 @@ function pairUp(students) {
   }
 
   return groups;
+} */
+
+
+/* SHORTER SOLUTION! */
+function pairUp(students) {
+  var result =[];
+
+  if(students.length % 2 !==0){
+    students.push("instruktur");
+  }
+
+  for(var i=0; i < students.length; i+=2){
+    result.push(students[i] + " dan " + students[i+1]);
+  }
+  return result;
 }
 
 // TEST CASES

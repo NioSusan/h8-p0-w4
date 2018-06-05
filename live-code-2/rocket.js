@@ -28,7 +28,7 @@ function multiDimensionalXO (size) {
         }
       }
     }
-}else if(size>=3 & size%2!==0){
+}else if(size>=3 && size%2!==0){
     for(var i=0;i<size;i++){
       bigBox.push([]);
       var currentLetter;
@@ -78,3 +78,121 @@ console.log(multiDimensionalXO(6));
 
 console.log(multiDimensionalXO(0));
 // Invalid input
+
+
+/*  SHORTER SOLUTION 1 - Gusti
+var kecil = "input invalid";
+if(size < 1){return kecil}
+
+var store = [];
+var final = [];
+var swiitch = 1;
+
+for (var init1 = 0; init < size; init1++){
+  for(var init2 = 0; init2 < size; init2++){
+    if(swiitch === 1){
+      store.push("x");
+      swiitch ++;
+    } else {
+      store.push("o");
+      swiitch--;
+    }
+  }
+  final.push(store);
+  store = [];
+}
+return final;
+}
+
+*/
+
+/* SHORTER SOLUTION 2 - Dimas
+function multiDimensionalXO (size) {
+  
+  var tampung = [];  
+  
+  for(var j = 0; j < size; j++) {
+    //data awal
+    var data = [];
+    if(j % 2 === 0) {
+      data.push('x');
+    } else {
+      data.push('o');
+    }
+    for(var i = 0; i < size; i++) {
+     // cek data selanjutnya berdasarkan data awalnya
+      if(data[i] === 'x') {
+        data.push('o');
+      } else {
+       data.push('x');
+      }
+    }
+    tampung.push(data);
+  }
+  return tampung;
+}
+*/
+
+/* SHORTER SOLUTION 3 - Eri
+function multiDimensionalXO (size) {
+  var output = [];
+  var buffer = [];
+  if(size<1){
+    return "Invalid input";
+  }
+  else{
+    for(var i = 0 ; i<size*size; i++){
+
+      buffer.push((i%2 ===0 ? 'x' : 'o'));
+
+      if (buffer.length % size === 0){
+        output.push(buffer);
+        buffer= [];
+      }
+
+    }
+
+  }
+  return output;
+}
+ */
+
+
+/* BONUS: SOLUTION untuk ubah xo menjadi angka
+function multiDimensionalXO (size) {
+  var bigBox =[];
+  var currentLetter;
+
+  for(var i=0; i<bigBox; i++){
+    for(var j=0; j<bigBox[i];j++)
+    if(bigBox[i][j] % 2 === 0){
+        bigBox[i][j] = "o";
+    } else {
+        bigBox[i][j] = "x";
+    }
+  }
+  
+  if(size===0){
+    return "Invalid input";
+  }else {
+    for(var i=0;i<size;i++){
+      bigBox.push([]);
+      if(currentLetter === undefined){
+        currentLetter = 1;
+      } 
+      for(var j=0;j<size;j++){
+        if(currentLetter===1){
+          bigBox[i].push(currentLetter);
+          currentLetter ++;
+        } else{
+          bigBox[i].push(currentLetter);
+          currentLetter ++
+        }
+      }
+    }
+  }
+  
+  return bigBox;
+
+}
+*/

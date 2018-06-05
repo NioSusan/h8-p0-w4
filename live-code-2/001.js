@@ -14,37 +14,44 @@ RULES:
   - Wajib menuliskan pseudocode. Tidak ada pseudocode / pseudocode tidak match
     dengan kode maka indikasi soal tidak diselesaikan secara pribadi dan tidak akan dinilai.
 
-*/
+
+/* Algoritma*/
+1. Siapkan variable result dengan ""
+2.looping dari var i set 0, sampai panjang kata ()
+  2.a jika kata[i] sama dengan 1 maka result diisi dengan result sebelumnya ditambah karakter "i"
+  2.b jika kata[i] sama dengan 4 maka result diisi dengan result sebelumnya ditambah karakter "a"
+  2.c jika kata[i] sama dengan 3 maka result diisi dengan result sebelumnya ditambah karakter "e"
+  2.d jika kata[i] sama dengan 7 maka result diisi dengan result sebelumnya ditambah karakter "u"
+  2.e jika kata[i] sama dengan 0 maka result diisi dengan result sebelumnya ditambah karakter "o"
+  2.f jika semua di atas tidak ada yang memenuhi kondisi maka result sebelumnya ditambah kata[i]
+  Tambahkan nilai i sebelumnya dengan 1.
+3. looping selesai
+4. Kembalikan nilai result
 
 
-/* PSEUDOCODE
-SET FUNCTION with str as the parameter THEN inside of it
-STORE "solved" with nothing
+/* Pseudocode*/
 STORE "i" with 0
-FOR "i" < length of str DO
-  IF str[i] is 1 THEN
-    STORE “solved” SET with str[i] = "i"
-    SET ’i’ = ‘i’ + 1
-  ELSE IF str[i] is 4 THEN
-    STORE “solved” SET with str[i] = "a"
-    SET ’i’ = ‘i’ + 1
-  ELSE IF str[i] is 3 THEN
-    STORE “solved” SET with str[i] = "e"
-    SET ’i’ = ‘i’ + 1
-  ELSE IF str[i] is 7 THEN
-    STORE “solved” SET with str[i] = "u"
-    SET ’i’ = ‘i’ + 1
-  ELSE IF str[i] is 0 THEN
-    STORE “solved” SET with str[i] = "o"
-    SET ’i’ = ‘i’ + 1
+STORE "result" with empty string
+
+FOR i to length of str
+  IF str[i] EQUALS "1" THEN
+    SET "result" with "result" + "i"
+  ELSE IF str[i] EQUALS "4" THEN
+    SET "result" with "result" + "a"
+  ELSE IF str[i] EQUALS "3" THEN
+    SET "result" with "result" + "e"
+  ELSE IF str[i] EQUALS "7" THEN
+    SET "result" with "result" + "u"
+  ELSE IF str[i] EQUALS "0" THEN
+    SET "result" with "result" + "o"
   ELSE
-     STORE “solved” SET with str[i]
-     SET ’i’ = ‘i’ + 1
+    SET "result" with "result"+str[i]
   END IF
+  
+  SET "i" with ‘i’ + 1
+
 END FOR
-RETURN "solved"
-END FUNCTION
-*/
+
 
 function numberLetters (str) {
   var solved ="";
