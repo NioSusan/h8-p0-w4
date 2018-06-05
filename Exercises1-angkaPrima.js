@@ -7,7 +7,7 @@ function angkaPrima(angka) {
     var q = Math.floor(Math.sqrt(angka));
 
     for (var i = 2; i <= q; i++){
-        if (angka % i == 0){
+        if (angka % i === 0){
             return false;
         }
     }
