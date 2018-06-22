@@ -1,13 +1,24 @@
+/* After Refactoring */
 function makanTerusRekursif(waktu) {
-    if (waktu===0){
-      return 0;
-    } else if (waktu<=15) {
-      return 1;
-    } else {
-      var sisaWaktu= waktu - 15;
-      return 1 + makanTerusRekursif(sisaWaktu);
-    }
+  if(waktu<=0){
+    return 0;
+  } else {
+    var count=1;
+    return count + makanTerusRekursif(waktu-15);
+  }
 }
+
+/* Before Refactoring */
+// function makanTerusRekursif(waktu) {
+//     if (waktu===0){
+//       return 0;
+//     } else if (waktu<=15) {
+//       return 1;
+//     } else {
+//       var sisaWaktu= waktu - 15;
+//       return 1 + makanTerusRekursif(sisaWaktu);
+//     }
+// }
   
 // TEST CASES
 console.log(makanTerusRekursif(66)); // 5
