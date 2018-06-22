@@ -17,11 +17,9 @@ function changeMe(arr) {
                 } else if (j===1){
                   obj.lastname= arr[i][j];
                 } else if(j===2){
+                  obj.gender = arr[i][j];
                   if(arr[i].length===3){
-                    obj.gender= arr[i][j];
-                    obj.age= "Invalid Birth Year";
-                  } else {
-                    obj.gender= arr[i][j];
+                    obj.age = "Invalid Birth Year";
                   }
                 } else if (j===3){
                   if(arr[i][j]>currentYear){
@@ -48,3 +46,44 @@ changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male']]);
 2. Robert Downey:{ firstName: 'Robert',lastName: 'Downey',gender: 'Male',age: 'Invalid Birth Year' } 
 */    
 changeMe([]); // ""
+
+/* ======================================================================================= */
+/* Alternative solution for the ending */
+function changeMe(arr) {
+  var result =[];
+  var obj={};
+  var currentYear = new Date().getFullYear();
+
+  if(arr.length===0){
+    return "";
+  }
+  for(var i=0;i<arr.length;i++){
+    for(var j=0;j<arr[i].length;j++){
+      if(j===0){
+        obj.firstName = arr[i][j];
+      } else if (j===1){
+        obj.lastName = arr[i][j];
+      } else if (j===2){
+        obj.gender = arr[i][j];
+        if(arr[i].length===3){
+          obj.age = "Invalid Birth Year";
+        }
+      } else if (j===3){
+        if(arr[i][j]>currentYear){
+            obj.age= "Invalid Birth Year";
+        }else{
+            obj.age= (currentYear-arr[i][j]);
+        }
+      } 
+    }
+    result.push(obj);
+    obj={};
+  }
+  var final ={};
+  var firstKeys;
+  for(var index in result){
+   firstKeys=(`${Number(index)+1}. ${result[index].firstName} ${result[index].lastName}`);
+   final[firstKeys] = result[index];
+  }
+  return final;
+}
