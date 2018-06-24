@@ -27,39 +27,14 @@ output: []
 
 */
 
-/* SOLUTION 1
-function pairUp(students) {
-  var groups=[];
-
-  if(students.length === 0){
-    return [];
-  } else if(students.length === 1){
-    groups.push(students + " dan Instruktur");
-  } else if(students.length % 2 === 0){
-    for(var i=0; i<students.length;i+=2){
-      groups.push(students[i] + " dan " + students[i+1]);
-    }
-  } else if(students.length % 2 !== 0){
-    for(var i=0; i<students.length-1;i+=2){
-      groups.push(students[i] + " dan " + students[i+1]);
-    }
-      groups.push(students[students.length-1] + " dan Instruktur");
-  }
-
-  return groups;
-} */
-
-
-/* SHORTER SOLUTION! */
-function pairUp(students) {
+//Solution 1 - if it's odd, add instruktur to make it even!
+function pairUp(arr){
   var result =[];
-
-  if(students.length % 2 !==0){
-    students.push("instruktur");
+  if(arr.length%2!==0){
+    arr.push("Instruktur");
   }
-
-  for(var i=0; i < students.length; i+=2){
-    result.push(students[i] + " dan " + students[i+1]);
+  for(var i=0;i<arr.length;i+=2){
+    result.push(`${arr[i]} dan ${arr[i+1]}`)
   }
   return result;
 }
@@ -70,4 +45,19 @@ console.log(pairUp(['Budi'])); // ['Budi dan Instruktur']
 console.log(pairUp(['Budi', 'Badu', 'Indra', 'Indri'])); // ['Budi dan Badu', 'Indra dan Indri']
 console.log(pairUp(['Budi', 'Badu', 'Indra', 'Indri', 'James'])); // ['Budi dan Badu', 'Indra dan Indri', 'James dan Instruktur']
 console.log(pairUp([])); // []
+
+/* ===================================================== */
+//Solution 2 - if arr[i+1]===undefined, add instruktur
+// function pairUp(arr){
+//   var result =[];
+//   for(var i=0;i<arr.length;i+=2){
+//     if(arr[i+1]===undefined){
+//       result.push(`${arr[i]} dan Instruktur`);
+//     } else {
+//       result.push(`${arr[i]} dan ${arr[i+1]}`)
+//     }
+//   }
+//   return result;
+// }
+
 
